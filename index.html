@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Nos casamos! Carolina & José Antonio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cormorant Garamond', serif;
+      background-color: #fefbf6;
+      color: #3c2f2f;
+      text-align: center;
+    }
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .photo {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .countdown {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+    .locations a {
+      display: block;
+      margin: 10px 0;
+      color: #6a4e4e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .rsvp-button {
+      display: inline-block;
+      background-color: #a68b75;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+    .quote {
+      font-style: italic;
+      margin-top: 30px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>¡NOS CASAMOS!</h1>
+    <h2>Carolina & José Antonio</h2>
+    <img src="TU-FOTO-AQUI.jpg" alt="Foto de los novios" class="photo">
+
+    <p>La ceremonia tendrá lugar el día <strong>27 de septiembre de 2025</strong><br>
+      a las <strong>12:30 horas</strong> en la <strong>Iglesia de la Inmaculada Concepción</strong><br>
+      (La Carolina, Jaén).<br>
+      A continuación, disfrutaremos todos juntos en la <strong>“Hacienda la Masía”</strong>.</p>
+
+    <div class="countdown" id="countdown"></div>
+
+    <div class="locations">
+      <a href="https://maps.google.com/?q=Iglesia+de+la+Inmaculada+Concepci%C3%B3n,+La+Carolina,+Ja%C3%A9n" target="_blank">🌽 Iglesia de la Inmaculada Concepción</a>
+      <a href="https://maps.google.com/?q=Hacienda+la+Mas%C3%ADa,+Ja%C3%A9n" target="_blank">🏪 Hacienda la Masía</a>
+    </div>
+
+    <a href="https://wa.me/34690298600?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20la%20boda%20de%20Carolina%20y%20Jos%C3%A9%20Antonio" class="rsvp-button" target="_blank">✉️ Confirmar asistencia</a>
+
+    <p class="quote">"El amor es el mejor guía para cualquier viaje"</p>
+  </div>
+
+  <script>
+    const countdown = document.getElementById('countdown');
+    const weddingDate = new Date('2025-09-27T12:30:00');
+
+    function updateCountdown() {
+      const now = new Date();
+      const diff = weddingDate - now;
+      if (diff <= 0) {
+        countdown.innerHTML = "¡Ha llegado el gran día!";
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+      countdown.innerHTML = `Faltan ${days} días, ${hours}h ${minutes}m ${seconds}s`;
+    }
+
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
